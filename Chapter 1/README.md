@@ -1,4 +1,6 @@
-# Lambda Calculus
+# Chapter 1 - All You Need is Lambda
+
+## Lambda Calculus
 - A formal system in mathematical logic for expressing computation based on function abstraction and application using variable binding and substitution
 - A universal model of computation that can be used to simulate any Turing machine
 - Introduced by the mathematician Alonzo Church in the 1930s
