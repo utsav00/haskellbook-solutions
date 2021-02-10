@@ -71,7 +71,7 @@ Let's break it down:
 
 ### Asociativity and Precedence
 - `:info function_name` in ghci gives the information of the function
-> >:info * 
+> \>:info * 
 > infixl 7 *
 - This implies that the function (*) is an infix function and l states left associativity
 - 7 is the precedence. It ranges from 0-9
