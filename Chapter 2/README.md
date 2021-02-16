@@ -58,7 +58,7 @@ Let's break it down:
 - To put it more simply, an expression has been evaluated to outermost data constructor or lambda head and the subexpressions may not be evaluated
 
 ## Infix Operators
-- Functions are return in prefic form, generally
+- Functions are return in prefix form, generally
 - Certain operators are also functions, and they are infix positioned
 - All operators are functions, all functions are not operators
 - Functions can be used infix style using backticks:
@@ -75,3 +75,123 @@ Let's break it down:
 > infixl 7 *
 - This implies that the function (*) is an infix function and l states left associativity
 - 7 is the precedence. It ranges from 0-9
+
+### Arithmetic Functions
+<table>
+    <tr>
+        <th>Operator</th>
+        <th>Purpose</th>
+    </tr>
+    <tr>
+        <td>+</td>
+        <td>Addition</td>
+    </tr>
+    <tr>
+        <td>-</td>
+        <td>Subtraction</td>
+    </tr>
+    <tr>
+        <td>*</td>
+        <td>Multiplication</td>
+    </tr>
+    <tr>
+        <td>/</td>
+        <td>Slash</td>
+    </tr>
+    <tr>
+        <td>div</td>
+        <td>Integral Division (round down)</td>
+    </tr>
+    <tr>
+        <td>mod</td>
+        <td>modulo</td>
+    </tr>
+    <tr>
+        <td>quot</td>
+        <td>Integral Division (round towards zero)</td>
+    </tr>
+    <tr>
+        <td>rem</td>
+        <td>Remainder</td>
+    </tr>
+</table>
+
+*Notes:*
+- *If one or both remainaiders are negative, <b>mod</b> result will have same sign as divisor while <b>rem</b> result will have same sign as dividend.*
+
+- *`3454 + -754` gives an error because Haskell interpretes it as addition and then subtraction and not addition on a positive to a negative integer. This is because addition and subtraction both has same precedence(6)*
+
+- *Also, `-` is syntactic sugar for `negate`*
+
+### Operator that does nothing
+```Haskell
+Prelude> :info $
+($) :: (a -> b) -> a -> b 	-- Defined in ‘GHC.Base’
+infixr 0 $
+```
+Equivalent Function
+> f $ a = f a
+- It does almost nothing
+- Convinient when one wants to express something with fewer pairs of parens
+- `(2^) (3 + 4)` can be written as `(2^) $ 3 + 5`
+
+##### Evaluation of `(2^) $ 2 + 2 $ (*30)`
+- Let's see why this doen't work:
+`(2^) $ 2 + 2 $ (*30)`
+- $ is right associative
+- So, first we evaluate `2 + 2 $ (*30)`
+- Now, we can't apply before calculating `2 + 2`
+` 4 (*30)`
+- This may look like `4 * 30` but what we are doing is that we're applyinf `4` as a function to an argument `(*30)`
+- Writing expressions like `(*30)` is called <b>sectioning</b>.
+
+### Parenthesizing infix operators
+
+Wrap operators in parens to:
+- Refer to an infix function without applying any arguments
+- Use them as prefex operators instead of infix
+
+```Haskell
+Prelude> 1 + 3
+4
+Prelude> (+) 1 3
+4
+Prelude> (+1) 3
+4
+```
+
+- The last part is called sectioning
+- It allows one to pass partially applied functions
+- The order of `(+1)` or `(1+)` does not matter when the function is commutative
+- But when it is not it matters:
+
+```Haskell
+Prelude> (1/) 2
+0.5
+Prelude> (/1) 2
+2.0
+```
+
+- However, subtraction is a special case
+
+```Haskell
+Prelude> 2 - 1
+1
+Prelude> (-) 2 1
+1
+```
+
+- But, `Prelude> (-2) 1` doesn't work. because `-` acts as a function that negates the next arguments i.e. `2`
+- Here, `-` is a case of syntactic overloading disambiguated by how it is used
+- To use sectioning for subtraction it should be the first argument
+
+```Haskell
+Prelude> (2 -) 1
+1
+```
+
+- Or to make life easier, we can just use `subtract`
+```Haskell
+Prelude> (subtract 2) 1
+1
+```
