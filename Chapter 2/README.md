@@ -69,7 +69,7 @@ Let's break it down:
 - Not all prefix functions can be made infix
 - A function name as symbol is infix by default
 
-### Asociativity and Precedence
+### Associativity and Precedence
 - `:info function_name` in ghci gives the information of the function
 > \>:info * 
 > infixl 7 *
@@ -117,9 +117,9 @@ Let's break it down:
 </table>
 
 *Notes:*
-- *If one or both remainaiders are negative, <b>mod</b> result will have same sign as divisor while <b>rem</b> result will have same sign as dividend.*
+- *If one or both remainders are negative, <b>mod</b> result will have same sign as divisor while <b>rem</b> result will have same sign as dividend.*
 
-- *`3454 + -754` gives an error because Haskell interpretes it as addition and then subtraction and not addition on a positive to a negative integer. This is because addition and subtraction both has same precedence(6)*
+- *`3454 + -754` gives an error because Haskell interprets it as addition and then subtraction and not addition on a positive to a negative integer. This is because addition and subtraction both has same precedence(6)*
 
 - *Also, `-` is syntactic sugar for `negate`*
 
@@ -132,7 +132,7 @@ infixr 0 $
 Equivalent Function
 > f $ a = f a
 - It does almost nothing
-- Convinient when one wants to express something with fewer pairs of parens
+- Convenient when one wants to express something with fewer pairs of parens
 - `(2^) (3 + 4)` can be written as `(2^) $ 3 + 5`
 
 ##### Evaluation of `(2^) $ 2 + 2 $ (*30)`
@@ -142,14 +142,14 @@ Equivalent Function
 - So, first we evaluate `2 + 2 $ (*30)`
 - Now, we can't apply before calculating `2 + 2`
 ` 4 (*30)`
-- This may look like `4 * 30` but what we are doing is that we're applyinf `4` as a function to an argument `(*30)`
+- This may look like `4 * 30` but what we are doing is that we're applying `4` as a function to an argument `(*30)`
 - Writing expressions like `(*30)` is called <b>sectioning</b>.
 
 ### Parenthesizing infix operators
 
 Wrap operators in parens to:
 - Refer to an infix function without applying any arguments
-- Use them as prefex operators instead of infix
+- Use them as prefix operators instead of infix
 
 ```Haskell
 Prelude> 1 + 3
@@ -195,3 +195,8 @@ Prelude> (2 -) 1
 Prelude> (subtract 2) 1
 1
 ```
+
+### Let and Where
+
+- `let` introduces an expression which can be used anywhere
+- `where` is a declaration and is bound to a surrounding syntactic construct
