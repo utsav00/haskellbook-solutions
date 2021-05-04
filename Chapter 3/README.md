@@ -49,7 +49,7 @@ Prelude> :type putStr
 putStr :: String -> IO ()
 ```
 
-- We can conclude from that `print` can take as input any type whereas `putStr` only takes `String`
+- We can conclude from that that `print` can take as input any type whereas `putStr` only takes `String`
 - Functions that behave similarly on surface level, can behave differently depending on the type or category they belong to
 
 <br>
@@ -64,7 +64,7 @@ main = putStrLn "hello world!"
 Let's look at the code
 - `main` is the entry point in any Haskell program similar to main function in C
 - `main` executable is usually mandatory when using a build tool such as Stack
-- As for the repl, the source file can be loaded without containing `main` block cause it is default executable
+- As for the repl, the source file can be loaded without containing `main` block cause it is the default executable
 
 - IO stands for input/output
 - In Haskell, it is a special type, called IO, used when the result of running the program involves effects beyond evaluating a function or expression
