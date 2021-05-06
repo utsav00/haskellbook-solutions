@@ -130,3 +130,47 @@ Prelude> "abc" + [1, 2]
 ### Local Level Definitions
 - Nested within some expression
 - Thus, not available outside that particular expression
+
+## List Functions
+- Since a `String` is a list of `Char`, various kinds of functions applicable to list can be applied to String, such as:
+<br>
+- `:` is called `cons`. Used 
+<table>
+    <tr>
+        <td>Function</td>
+        <td>Usage</td>
+        <td>Example</td>
+    </tr>
+    <tr>
+        <td>: (cons)</td>
+        <td>To build a list</td>
+        <td>'a' : " list"</td>
+    </tr>
+    <tr>
+        <td>head</td>
+        <td>Give the head of the list</td>
+        <td>head "abc" -> 'a'</td>
+    </tr>
+    <tr>
+        <td>tail</td>
+        <td>Give the tail of the list</td>
+        <td>tail "abc" -> "bc"</td>
+    </tr>
+    <tr>
+        <td>take</td>
+        <td>Get the specified elements</td>
+        <td>take 2 "abc" -> "ab"</td>
+    </tr>
+    <tr>
+        <td>drop</td>
+        <td>Drop the elements till the specified index</td>
+        <td>drop 2 "abc" -> "c"</td>
+    </tr>
+    <tr>
+        <td>!!</td>
+        <td>Get the element at specified position</td>
+        <td>"abc" !! 2 -> 'c'</td>
+    </tr>
+</table>
+
+- All these `Prelude` functions are unsafe i.e. they do not cover the case when an empty string has been passed; an exception or error is resulted
