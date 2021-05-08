@@ -1,11 +1,11 @@
 # Building Functions
 
-1. 
-    a)
-    -- Given
-    "Curry is awesome"
-    -- Return
-    "Curry is awesome!"
+1.  
+    a)  
+    -- Given  
+    "Curry is awesome"  
+    -- Return  
+    "Curry is awesome!"  
 
     ```Haskell
     "Curry is awesome" ++ "!"
@@ -14,10 +14,10 @@
     ```
 
     b)
-    -- Given
-    "Curry is awesome!"
-    -- Return
-    "y"
+    -- Given  
+    "Curry is awesome!"  
+    -- Return  
+    "y"  
 
     ```Haskell
     "Curry is awesome!" !! 4 -- returns a character
@@ -25,10 +25,10 @@
     ```
 
     c)
-    -- Given
-    "Curry is awesome!"
-    -- Return
-    "awesome!"
+    -- Given  
+    "Curry is awesome!"  
+    -- Return  
+    "awesome!"  
 
     ```Haskell
     drop 9 "Curry is awesome!"
@@ -36,10 +36,10 @@
 
 3. Get the third letter of the list
 
-    -- If you apply your function
-    -- to this value:
-    "Curry is awesome"
-    -- Your function should return
+    -- If you apply your function  
+    -- to this value:  
+    "Curry is awesome"  
+    -- Your function should return  
     `r'
 
     ```Haskell
